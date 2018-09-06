@@ -45,6 +45,8 @@ typedef struct		s_term
 	 */
 	int				am_quotes;
 	int				am_dquotes;
+	int 			quote_promptlen;
+	int 			linedbuffer_length;
 	/*
 	 * Terminal
 	 */

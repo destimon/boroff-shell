@@ -88,15 +88,19 @@ void			commands_space(t_term *te, char *input)
 	i = 0;
 	if (!input)
 		return ;
-	if (catch_pipes(input) == 0)
+	if (catch_pipes(te, input) == 0)
 	{
 		pipes = ft_strsplit(input, '|');
 		free(input);
 		while (pipes[i])
 		{
 			query = ft_strsplit_two(pipes[i], ' ', '\t');
-			if (!ft_elems(query))
-				return (free(query));
+			if (ft_elems(query) == 0)
+			{
+				ft_free_twodm(pipes);
+				ft_free_twodm(query);
+				return ;
+			}
 			replacement(te, query);
 			reset_input_mode();
 			commands_switch(te, query);

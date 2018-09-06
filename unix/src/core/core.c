@@ -33,17 +33,27 @@ void (*g_key_handler[])(t_term *te) = {
 
 void			ft_bufferize(t_term *te, long input)
 {
+	int i = 0;
+
+	if (input == '\t')
+	{
+		tputs(tgetstr("im", NULL), 1, &complete);
+		while (i++ < TAB_SIZE)
+			ft_putchar(' ');
+		tputs(tgetstr("ei", NULL), 1, &complete);
+	}
 	if (ft_isprint((int)input))
 	{
 		tputs(tgetstr("im", NULL), 1, &complete);
 		ft_putchar((char)input);
 		tputs(tgetstr("ei", NULL), 1, &complete);
 	}
-	if (te->q_end >= ARG_MAX || !ft_isprint((int)input))
+	if (te->q_end >= ARG_MAX || (!ft_isprint((int)input) && input != '\t'))
 		return ;
 	ft_memmove(&te->query[te->q_iterator + 1], &te->query[te->q_iterator],
 			(size_t)te->q_end - te->q_iterator);
 	te->query[te->q_iterator] = (char)input;
+	te->linedbuffer_length++;
 	te->q_iterator++;
 	te->q_end++;
 }

@@ -47,7 +47,7 @@ char				**realloc_history(t_history *hst, int size)
 
 void				push_history(t_history *hst, char *cont)
 {
-	if (!ft_strlen(cont))
+	if (!ft_strlen(cont) || !cont)
 		return ;
 	if (hst->h_capacity == 0)
 	{

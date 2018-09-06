@@ -71,6 +71,8 @@ t_term				*init_term(void)
 	sh_lvl(&te);
 	te->am_quotes = 0;
 	te->am_dquotes = 0;
+	te->quote_promptlen = 0;
+	te->linedbuffer_length = 0;
 	te->q_iterator = 0;
 	te->q_end = 0;
 	te->ws_cols = ws.ws_col;

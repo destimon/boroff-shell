@@ -37,14 +37,14 @@
 
 void			print_borroff()
 {
-	ft_putendl("\t         (__) \n"
+	ft_putendl("\n\t         (__) \n"
 				   "\t         (oo) ШО?\n"
 				   "\t   /------\\/ \n"
 				   "\t  / |    ||   \n"
 				   "\t *  /\\---/\\ \n"
 				   "\t    ~~   ~~   \n"
 					   "\tboroff shell alpha\n"
-					   "\t(c) dcherend");
+					   "\t(c) dcherend\n");
 }
 
 void			init_loop()

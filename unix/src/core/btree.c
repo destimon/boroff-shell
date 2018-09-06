@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   btree.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dcherend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/06 16:02:28 by dcherend          #+#    #+#             */
+/*   Updated: 2018/09/06 16:02:58 by dcherend         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/21sh.h"
 
 static t_token	*alloc_token(char *left, char *right, int op)
@@ -37,10 +49,32 @@ static t_token	*get_token(char **pipes)
 	return (start);
 }
 
-int				catch_pipes(char *cmd)
+static void		init_pipethreads(t_term *te, t_token *tok)
+{
+	char		**cmd;
+	int			pipefd[2];
+	pid_t		pid;
+
+	pipe(pipefd);
+	pid = fork();
+	if (pid == 0)
+	{
+		dup2(pipefd[0], 0);
+		close(pipefd[1]);
+		execve("ls", &tok->left, te->env);
+		dup2(pipefd[1], 1);
+		close(pipefd[0]);
+		execve("ls", &tok->left, te->env);
+	}
+	else if (pid < 0)
+		ft_putendl("Unable to fork pid");
+}
+
+int				catch_pipes(t_term *te, char *cmd)
 {
 	char		**pipes;
 	t_token		*tok;
+	t_token		*tmp;
 
 	pipes = ft_strsplit(cmd, '|');
 	if (ft_elems(pipes) < 2)
@@ -49,11 +83,12 @@ int				catch_pipes(char *cmd)
 		return (0);
 	}
 	tok = get_token(pipes);
+	init_pipethreads(te, tok);
 	while (tok)
 	{
-		printf("left: %s\n", tok->left);
-		printf("right: %s\n", tok->right);
+		tmp = tok;
 		tok = tok->next;
+		free(tmp);
 	}
 	ft_free_twodm(pipes);
 	return (1);

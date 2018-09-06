@@ -83,6 +83,12 @@
 # define KEY_ENTER	10
 
 /*
+** MISC.
+*/
+
+# define TAB_SIZE	9
+
+/*
 ** GLOBAL VARIABLES.
 */
 struct termios	g_sa;
@@ -122,7 +128,7 @@ void		commands_space(t_term *te, char *input);
 /*
 ** BTREE.
 */
-int			catch_pipes(char *cmd);
+int			catch_pipes(t_term *te, char *cmd);
 
 /*
 ** DIR: INPUT -----------------------------------------------------------------

@@ -15,11 +15,23 @@
 void		ft_outputchars(char *str)
 {
 	int		i;
+	int 	j;
 
 	i = 0;
+	j = 0;
 	while (str[i])
 	{
-		if (ft_isprint((int)str[i]))
+		if (str[i] == '\t')
+		{
+			if (str[i] == '\t')
+			{
+				tputs(tgetstr("im", NULL), 1, &complete);
+				while (j++ < TAB_SIZE)
+					ft_putchar(' ');
+				tputs(tgetstr("ei", NULL), 1, &complete);
+			}
+		}
+		else if (ft_isprint((int)str[i]))
 		{
 			tputs(tgetstr("im", NULL), 1, &complete);
 			ft_putchar(str[i]);
