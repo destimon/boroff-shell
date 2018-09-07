@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   21sh.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcherend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:04:59 by dcherend          #+#    #+#             */
-/*   Updated: 2018/08/06 18:27:03 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/07 15:59:57 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include "structs.h"
-
+#include <fcntl.h>
 /*
 ** pipe, redirect, double redirect and heredoc.
 */
@@ -129,6 +129,12 @@ void		commands_space(t_term *te, char *input);
 ** BTREE.
 */
 int			catch_pipes(t_term *te, char *cmd);
+/*
+** THREADS.
+*/
+void		init_pipethreads(t_term *te, t_token *tok);
+void		init_redirthreads(t_term *te, t_token *tok);
+void		init_heredocthreads(t_term *te, t_token *tok);
 
 /*
 ** DIR: INPUT -----------------------------------------------------------------

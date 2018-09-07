@@ -6,7 +6,7 @@
 #    By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/31 16:47:05 by dcherend          #+#    #+#              #
-#    Updated: 2018/08/04 17:59:48 by dcherend         ###   ########.fr        #
+#    Updated: 2018/09/07 18:42:01 by dcherend         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,9 @@ SRC =       ft_bzero.c ft_memcpy.c ft_memccpy.c ft_strcpy.c ft_strcat.c \
             get_next_line.c ft_elems.c ft_two_del.c ft_swapch.c \
             ft_strjoin_free.c ft_numlen.c ft_tabputs.c ft_puts_except.c \
             ft_puts_except_rev.c ft_free_twodm.c ft_realloc.c ft_strlench.c \
-            ft_strdupch.c ft_occpos.c ft_strsplit_two.c isuseragoat.c \
-			ft_strsjoin.c count_occ.c remove_occ.c
+            ft_strdupch.c ft_occpos.c ft_strsplit_many.c isuseragoat.c \
+			ft_strsjoin.c count_occ.c remove_occ.c ft_strdup_char.c \
+            ft_strsplit_smart.c
 
 OBJ =       $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 all: $(NAME)

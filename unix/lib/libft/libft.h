@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 18:33:08 by dcherend          #+#    #+#             */
-/*   Updated: 2018/08/04 18:00:56 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/07 18:41:26 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,13 @@ char				*ft_realloc(char *ptr, size_t size);
 size_t				ft_strlench(const char *s, char ch);
 char				*ft_strdupch(const char *s1, char ch);
 int					ft_occpos(char *str, char occ);
-char				**ft_strsplit_two(char const *s, char c, char c2);
+char				**ft_strsplit_many(char const *s, const char *dels);
 int					is_user_a_goat(void);
 char				*ft_strsjoin(int amount, ...);
 int					count_occ(const char *str, char occ);
 char				*remove_occ(char *str, char occ);
+char				**ft_strsplit_smart(char const *s, const char *dels);
+char				*ft_strdup_char(char c);
 
 /*
 ** LISTS.

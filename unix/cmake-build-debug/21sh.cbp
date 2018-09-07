@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="21sh"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/dcherend/Stuff/unix/21sh/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/dcherend/Stuff/unix/21sh/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/dcherend/Stuff/unix/21sh/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="21sh">
+				<Option output="/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/21sh" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/dcherend/Stuff/unix/21sh/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 21sh"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="21sh/fast">
+				<Option output="/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/21sh" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/dcherend/Stuff/unix/21sh/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 21sh/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/dcherend/Stuff/unix/21sh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/inc/21sh.h">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/inc/structs.h">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/count_occ.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_atoi.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_bzero.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_elems.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_free_twodm.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_is_prime.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_is_sort.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_isalnum.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_isalpha.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_isascii.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_isdigit.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_isprint.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_itoa.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_lstadd.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_lstdel.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_lstdelone.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_lstiter.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_lstmap.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_lstnew.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_memalloc.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_memccpy.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_memchr.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_memcmp.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_memcpy.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_memdel.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_memmove.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_memset.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_numlen.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_occpos.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_putchar.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_putchar_fd.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_putendl.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_putendl_fd.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_putnbr.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_putnbr_fd.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_puts_except.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_puts_except_rev.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_putstr.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_putstr_fd.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_realloc.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_recursive_power.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_sqrt.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strcat.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strchr.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strclr.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strcmp.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strcpy.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strdel.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strdup.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strdupch.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strequ.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_striter.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_striteri.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strjoin.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strjoin_free.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strlcat.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strlen.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strlench.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strmap.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strmapi.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strncat.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strncmp.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strncpy.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strnequ.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strnew.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strnstr.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strrchr.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strsjoin.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strsplit.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strsplit_two.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strstr.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strsub.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_strtrim.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_swap.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_swapch.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_tabputs.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_tolower.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_toupper.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/ft_two_del.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/get_next_line.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/get_next_line.h">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/isuseragoat.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/libft.h">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/lib/libft/remove_occ.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/cmd/cmd.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/cmd/cmd_cd.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/cmd/cmd_echo.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/cmd/cmd_env.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/core/btree.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/core/core.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/core/execute.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/etc/environ.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/etc/envmanage.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/etc/error.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/etc/history.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/etc/quotes.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/etc/signals.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/etc/utils.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/etc/utils2.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/input/combinations.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/input/input.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/input/input2.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/input/moving.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/input/qu_deleter.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/interface/term.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/interface/ui.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/src/main.c">
+			<Option target="21sh"/>
+		</Unit>
+		<Unit filename="/Users/dcherend/Stuff/unix/21sh/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

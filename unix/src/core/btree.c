@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   btree.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcherend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 16:02:28 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/06 16:02:58 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/07 19:22:37 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,60 +36,49 @@ static t_token	*get_token(char **pipes)
 	int			size;
 
 	i = 0;
-	start = alloc_token(pipes[i], pipes[i + 1], B_PIPE);
-	tmp = start;
 	size = ft_elems(pipes);
-	i += 1;
-	while (i < size - 1)
+	if (size < 3 || !pipes)
 	{
-		tmp->next = alloc_token(pipes[i], pipes[i + 1], B_PIPE);
+		ft_putstr("Parse error\n");
+		return (NULL);
+	}
+	start = alloc_token(pipes[i], pipes[i + 2], pipes[i + 1][0]);
+	tmp = start;
+	i += 1;
+	while (i < size - 2)
+	{
+		tmp->next = alloc_token(pipes[i], pipes[i + 2], pipes[i + 1][0]);
 		tmp = tmp->next;
 		i++;
 	}
 	return (start);
 }
 
-static void		init_pipethreads(t_term *te, t_token *tok)
-{
-	char		**cmd;
-	int			pipefd[2];
-	pid_t		pid;
-
-	pipe(pipefd);
-	pid = fork();
-	if (pid == 0)
-	{
-		dup2(pipefd[0], 0);
-		close(pipefd[1]);
-		execve("ls", &tok->left, te->env);
-		dup2(pipefd[1], 1);
-		close(pipefd[0]);
-		execve("ls", &tok->left, te->env);
-	}
-	else if (pid < 0)
-		ft_putendl("Unable to fork pid");
-}
-
 int				catch_pipes(t_term *te, char *cmd)
 {
 	char		**pipes;
+	char		delims[] = { '|', '>', '<' };
 	t_token		*tok;
 	t_token		*tmp;
 
-	pipes = ft_strsplit(cmd, '|');
+	pipes = ft_strsplit_smart(cmd, delims);
 	if (ft_elems(pipes) < 2)
 	{
 		ft_free_twodm(pipes);
 		return (0);
 	}
 	tok = get_token(pipes);
-	init_pipethreads(te, tok);
 	while (tok)
 	{
+		if (tok->op == B_PIPE)
+			init_pipethreads(te, tok);
+		else if (tok->op == B_REDI)
+			init_redirthreads(te, tok);
 		tmp = tok;
 		tok = tok->next;
 		free(tmp);
 	}
-	ft_free_twodm(pipes);
+	if (pipes)
+		ft_free_twodm(pipes);
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcherend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 13:30:11 by dcherend          #+#    #+#             */
-/*   Updated: 2018/08/06 15:08:36 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/07 19:15:13 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void			commands_space(t_term *te, char *input)
 {
 	char	**query;
 	char	**pipes;
+	char	delims[] = {' ', '\t', '\0'};
 	int		i;
 
 	i = 0;
@@ -94,7 +95,7 @@ void			commands_space(t_term *te, char *input)
 		free(input);
 		while (pipes[i])
 		{
-			query = ft_strsplit_two(pipes[i], ' ', '\t');
+			query = ft_strsplit_many(pipes[i], delims);
 			if (ft_elems(query) == 0)
 			{
 				ft_free_twodm(pipes);
