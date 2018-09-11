@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 16:02:28 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/07 19:22:37 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/11 17:06:04 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ static t_token	*get_token(char **pipes)
 	}
 	start = alloc_token(pipes[i], pipes[i + 2], pipes[i + 1][0]);
 	tmp = start;
-	i += 1;
+	i += 2;
 	while (i < size - 2)
 	{
 		tmp->next = alloc_token(pipes[i], pipes[i + 2], pipes[i + 1][0]);
 		tmp = tmp->next;
-		i++;
+		i += 2;
 	}
 	return (start);
 }
@@ -62,7 +62,7 @@ int				catch_pipes(t_term *te, char *cmd)
 	t_token		*tmp;
 
 	pipes = ft_strsplit_smart(cmd, delims);
-	if (ft_elems(pipes) < 2)
+	if (ft_elems(pipes) < 3)
 	{
 		ft_free_twodm(pipes);
 		return (0);
@@ -70,10 +70,17 @@ int				catch_pipes(t_term *te, char *cmd)
 	tok = get_token(pipes);
 	while (tok)
 	{
+		// printf("tok->op: %c\n", tok->op);
+		// printf("tok->left: %s\n", tok->left);
+		// printf("tok->right: %s\n", tok->right);
+		// printf("==============\n");
+		// tok = tok->next;
 		if (tok->op == B_PIPE)
 			init_pipethreads(te, tok);
 		else if (tok->op == B_REDI)
 			init_redirthreads(te, tok);
+		else if (tok->op == B_BRED)
+			init_bredthreads(te, tok);
 		tmp = tok;
 		tok = tok->next;
 		free(tmp);

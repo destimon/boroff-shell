@@ -63,14 +63,19 @@ char			**ft_strsplit_smart(char const *s, const char *dels)
 		return (NULL);
 	while (*s && wamount--)
 	{
-		while (ft_strchr(dels, *s) && *s)
+		if (ft_strchr(dels, *s) && *s)
 		{
-			arr[word++] = ft_strdup_char(*s);
-			s++;
-			wamount--;
+			while (ft_strchr(dels, *s) && *s)
+			{
+				arr[word++] = ft_strdup_char(*s);
+				s++;
+			}
 		}
-		arr[word++] = ft_strsub((const char*)s, 0, ft_count_length(s, dels));
-		s = s + ft_count_length((const char*)s, dels);
+		else
+		{
+			arr[word++] = ft_strsub((const char*)s, 0, ft_count_length(s, dels));
+			s = s + ft_count_length((const char*)s, dels);
+		}
 	}
 	arr[word] = NULL;
 	return (arr);

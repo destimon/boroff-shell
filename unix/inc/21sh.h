@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:04:59 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/07 15:59:57 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/11 16:22:02 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@
 ** pipe, redirect, double redirect and heredoc.
 */
 # define B_EMPT				0
-# define B_PIPE				1
-# define B_REDI				2
-# define B_DRED				3
-# define B_HERE				4
+# define B_PIPE				'|'
+# define B_REDI				'>'
+# define B_DRED				1337
+# define B_BRED				'<'
 
 /*
 ** COLORS.
@@ -135,6 +135,7 @@ int			catch_pipes(t_term *te, char *cmd);
 void		init_pipethreads(t_term *te, t_token *tok);
 void		init_redirthreads(t_term *te, t_token *tok);
 void		init_heredocthreads(t_term *te, t_token *tok);
+void		init_bredthreads(t_term *te, t_token *tok);
 
 /*
 ** DIR: INPUT -----------------------------------------------------------------

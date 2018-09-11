@@ -26,16 +26,31 @@ void			init_pipethreads(t_term *te, t_token *tok)
 
 void			init_redirthreads(t_term *te, t_token *tok)
 {
+	char		**cmd;
+	pid_t		pid;
+	char		dels[] = {'\t', ' ', '\0' };
 	int 		in;
 	int			out;
 
-	in = open("scores", O_RDONLY);
-	out = open("out", O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IRGRP | S_IWGRP | S_IWUSR);
-	dup2(in, 0);
-	dup2(out, 1);
-	close(in);
-	close(out);
-	execvp(&tok->left[0], &tok->left);
+	cmd = ft_strsplit_many(tok->right, dels);
+	if (!cmd)
+		return ;
+	pid = fork();
+	if (pid == 0)
+	{
+		in = open(tok->left, O_RDONLY);
+		dup2(in, STDIN_FILENO);
+		close(in);
+		out = open(cmd[0], O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IRGRP | S_IWGRP | S_IWUSR);
+		dup2(out, STDOUT_FILENO);
+		close(out);
+		execvp(&tok->left[0], &tok->left);
+	}
+}
+
+void			init_bredthreads(t_term *te, t_token *tok)
+{
+
 }
 
 void			init_heredocthreads(t_term *te, t_token *tok)

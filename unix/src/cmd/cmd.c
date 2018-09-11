@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcherend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 10:45:19 by dcherend          #+#    #+#             */
-/*   Updated: 2018/08/06 18:16:02 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/11 17:53:48 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,9 @@ static int		cmd_exec_woenv(t_term *te, char *bin, char **args)
 		if (child_pid < 0)
 			ft_putendl("Unable to fork pid");
 		else if (child_pid == 0)
-		{
 			execve(bin, args, te->env);
-		}
 		else
-			waitpid(child_pid, &status, 0);
+			waitpid(child_pid, &status, 0);	
 		return (1);
 	}
 	return (0);
@@ -87,10 +85,9 @@ int				cmd_exec(t_term *te, char *bin, char **args)
 	char		**envpaths;
 	int			i;
 
-
 	i = -1;
-	if (cmd_exec_woenv(te, bin, args))
-		return (1);
+	if (cmd_exec_woenv(te, bin, args)) 		// What the hell i've wrote? 
+		return (1);						  // This function actually don't make any sense ...
 	if (!(envpaths = get_envpaths(te, bin)))
 		return (0);
 	while (envpaths[++i])

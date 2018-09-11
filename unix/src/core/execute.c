@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 13:30:11 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/07 19:15:13 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/11 17:55:25 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,27 +91,18 @@ void			commands_space(t_term *te, char *input)
 		return ;
 	if (catch_pipes(te, input) == 0)
 	{
-		pipes = ft_strsplit(input, '|');
-		free(input);
-		while (pipes[i])
+		query = ft_strsplit_many(input, delims);
+		if (ft_elems(query) == 0)
 		{
-			query = ft_strsplit_many(pipes[i], delims);
-			if (ft_elems(query) == 0)
-			{
-				ft_free_twodm(pipes);
-				ft_free_twodm(query);
-				return ;
-			}
-			replacement(te, query);
-			reset_input_mode();
-			commands_switch(te, query);
-			set_input_mode();
-			if (query)
-				ft_two_del(query);
-			i++;
+			ft_free_twodm(query);
+			return ;
 		}
-		ft_free_twodm(pipes);
+		replacement(te, query);
+		reset_input_mode();
+		commands_switch(te, query);
+		set_input_mode();
+		if (query)
+			ft_two_del(query);
 	}
-	else
-		free(input);
+	free(input);
 }
