@@ -3,24 +3,40 @@
 void			init_pipethreads(t_term *te, t_token *tok)
 {
 	char		**cmd;
+	char		**cmd2;
 	int			pipefd[2];
 	pid_t		pid;
+	pid_t		pid2;
+	int			status;
 
-	pipe(pipefd);
-	pid = fork();
-	if (pid == 0)
+	cmd = ft_strsplit(tok->left, ' ');
+	cmd2 = ft_strsplit(tok->right, ' ');
+
+	if (access(cmd[0], F_OK) == 0)
 	{
-		dup2(pipefd[0], 0);
-		close(pipefd[1]);
-		execve("ls", (char *const *)"-l", te->env);
-	}
-	else if (pid < 0)
-		ft_putendl("Unable to fork pid");
-	else
-	{
-		dup2(pipefd[1], 1);
-		close(pipefd[0]);
-		execve("ls", (char *const *)"-l", te->env);
+		pid = fork();
+		set_input_mode();
+		if (pid == 0)
+		{
+			pipe(pipefd);
+			if (access(cmd[0], F_OK) == 0)
+			{
+				pid2 = fork();
+				if (pid2 == 0)
+				{
+					dup2(pipefd[1], 1);
+					close(pipefd[0]);
+					execve(cmd[0], cmd, te->env);
+				}
+				else
+					wait(&status);
+			}
+			dup2(pipefd[0], 0);
+			close(pipefd[1]);
+			execve(cmd2[0], cmd2, te->env);
+		}
+		else
+			wait(&status);
 	}
 }
 
@@ -28,7 +44,7 @@ void			init_redirthreads(t_term *te, t_token *tok)
 {
 	char		**cmd;
 	pid_t		pid;
-	char		dels[] = {'\t', ' ', '\0' };
+	char		dels[] = { '\t', ' ', '\0' };
 	int 		in;
 	int			out;
 

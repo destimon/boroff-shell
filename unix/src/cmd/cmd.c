@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 10:45:19 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/11 17:53:48 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/14 14:43:54 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ static int		cmd_exec_woenv(t_term *te, char *bin, char **args)
 		if (child_pid < 0)
 			ft_putendl("Unable to fork pid");
 		else if (child_pid == 0)
+		{
 			execve(bin, args, te->env);
+		}
 		else
 			waitpid(child_pid, &status, 0);	
 		return (1);
@@ -71,7 +73,8 @@ void			do_process(t_term *te, char *env, char **args)
 	else if (child_pid == 0)
 	{
 		g_curr_job = child_pid;
-		execve(env, args, te->env);
+		if (!(execve(env, args, te->env)))
+			exit (0);		
 	}
 	else
 	{
@@ -86,8 +89,8 @@ int				cmd_exec(t_term *te, char *bin, char **args)
 	int			i;
 
 	i = -1;
-	if (cmd_exec_woenv(te, bin, args)) 		// What the hell i've wrote? 
-		return (1);						  // This function actually don't make any sense ...
+	if (cmd_exec_woenv(te, bin, args))
+		return (1);
 	if (!(envpaths = get_envpaths(te, bin)))
 		return (0);
 	while (envpaths[++i])
