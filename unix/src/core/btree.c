@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 16:02:28 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/11 17:06:04 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:15:03 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int				catch_pipes(t_term *te, char *cmd)
 	char		**pipes;
 	char		delims[] = { '|', '>', '<' };
 	t_token		*tok;
-	t_token		*tmp;
 
 	pipes = ft_strsplit_smart(cmd, delims);
 	if (ft_elems(pipes) < 3)
@@ -68,23 +67,7 @@ int				catch_pipes(t_term *te, char *cmd)
 		return (0);
 	}
 	tok = get_token(pipes);
-	while (tok)
-	{
-		// printf("tok->op: %c\n", tok->op);
-		// printf("tok->left: %s\n", tok->left);
-		// printf("tok->right: %s\n", tok->right);
-		// printf("==============\n");
-		// tok = tok->next;
-		if (tok->op == B_PIPE)
-			init_pipethreads(te, tok);
-		else if (tok->op == B_REDI)
-			init_redirthreads(te, tok);
-		else if (tok->op == B_BRED)
-			init_bredthreads(te, tok);
-		tmp = tok;
-		tok = tok->next;
-		free(tmp);
-	}
+	thread_manager(te, tok);
 	if (pipes)
 		ft_free_twodm(pipes);
 	return (1);

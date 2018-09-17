@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcherend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:46:26 by dcherend          #+#    #+#             */
-/*   Updated: 2018/08/04 15:21:11 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:55:18 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void		restore(int sig)
 {
 	if (sig == SIGINT)
 	{
+		g_te->shret = 0;
 		if (g_curr_job <= 0)
 		{
 			ft_putchar('\n');

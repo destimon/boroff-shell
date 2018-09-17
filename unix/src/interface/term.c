@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   term.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcherend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:23:31 by dcherend          #+#    #+#             */
-/*   Updated: 2018/08/06 20:12:50 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:48:06 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ t_term				*init_term(void)
 	te->ws_cols = ws.ws_col;
 	te->ws_rows = ws.ws_row;
 	te->hst = init_history();
+	te->shret = 1;
 	return (te);
 }

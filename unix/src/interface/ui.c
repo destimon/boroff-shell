@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:08:58 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/13 16:23:02 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/17 14:21:43 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,23 @@ void			show_prompt(t_term *te)
 	char		*user;
 	char		*path;
 	char		tmp[PATH_MAX];
-	char		host[1024];
 
-	// user = get_var(te, "USER");
 	if (((getcwd(tmp, PATH_MAX))) != NULL)
 	{
-		// gethostname(host, 1024);
-		// ft_putstr(ANSI_COLOR_GREEN);
-		// ft_putstr(user);
-		// free(user);
-		// ft_putstr("@");
+		ft_putstr("\e[1;37m[");
+		if (te->shret == 1)
+			ft_putstr("\e[1;32m");
+		else
+			ft_putstr("\e[1;31m");
+		ft_putstr("X");
+		ft_putstr(ANSI_COLOR_RESET);
+		ft_putstr("\e[1;37m] ");
 		ft_putstr(ANSI_COLOR_GREEN);
-		// ft_putstr(host);
-		// ft_putstr(":");
-		// ft_putstr(ANSI_COLOR_BLUE);
 		path = path_homecut(tmp);
 		ft_putstr(path);
 		free(path);
 		ft_putstr(ANSI_BOLD_WHITE);
-		ft_putstr("$> ");
+		ft_putstr(" >> ");
 		ft_putstr(ANSI_COLOR_RESET);
 	}
 }

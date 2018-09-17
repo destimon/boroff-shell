@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 13:30:11 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/11 17:55:25 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:37:29 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 static void		commands_switch(t_term *te, char **query)
 {
 	g_curr_job = -1;
+	te->shret = 1;
 	if (!query[0])
 		return ;
 	if (F_CMP(query[CMD], "help") == 0)
@@ -38,7 +39,10 @@ static void		commands_switch(t_term *te, char **query)
 	else if (F_CMP(query[CMD], "exit") == 0)
 		exit(0);
 	else if (cmd_exec(te, query[0], &query[0]) == 0)
+	{
+		te->shret = 0;
 		unknown_cmd(query[CMD]);
+	}
 }
 
 static void		replacement(t_term *te, char **string)
@@ -83,7 +87,6 @@ void			commands_space(t_term *te, char *input)
 {
 	char	**query;
 	char	**pipes;
-	char	delims[] = {' ', '\t', '\0'};
 	int		i;
 
 	i = 0;
@@ -91,7 +94,7 @@ void			commands_space(t_term *te, char *input)
 		return ;
 	if (catch_pipes(te, input) == 0)
 	{
-		query = ft_strsplit_many(input, delims);
+		query = ft_strsplit_many(input, ARR_WHITE_SPACES);
 		if (ft_elems(query) == 0)
 		{
 			ft_free_twodm(query);

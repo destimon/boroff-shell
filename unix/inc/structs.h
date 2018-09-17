@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcherend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 14:57:17 by dcherend          #+#    #+#             */
-/*   Updated: 2018/08/06 20:12:09 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:46:32 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct		s_term
 	/*
 	 * Terminal
 	 */
+	int				shret;
 	int				ws_cols;
 	int				ws_rows;
 	/*

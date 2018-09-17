@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcherend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 10:20:01 by dcherend          #+#    #+#             */
-/*   Updated: 2018/08/02 14:53:14 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/17 14:08:41 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ void			cd_errors(char *err)
 	if (err)
 	{
 		ft_putstr("cd: ");
+		ft_putendl(err);
+	}
+}
+
+void			bin_errors(char *err)
+{
+	if (err)
+	{
+		ft_putstr("21sh: ");
 		ft_putendl(err);
 	}
 }

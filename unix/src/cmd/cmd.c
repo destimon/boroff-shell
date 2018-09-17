@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 10:45:19 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/14 14:43:54 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:39:37 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,35 @@ void			cmd_echo(t_term *te, char **strings)
 
 static int		cmd_exec_woenv(t_term *te, char *bin, char **args)
 {
+	struct stat	stats;
 	int			status;
 	pid_t		child_pid;
 
 	status = -1;
 	if (access(bin, F_OK) == 0)
 	{
-		child_pid = fork();
-		if (child_pid < 0)
-			ft_putendl("Unable to fork pid");
-		else if (child_pid == 0)
+		lstat(bin, &stats);
+		if (S_ISDIR(stats.st_mode))
 		{
-			execve(bin, args, te->env);
+			bin_errors(ERR_BIN_ISDIR);
+			return (1);
+		}
+		else if (access(bin, X_OK) == -1)
+		{
+			ft_putendl("Permission denied");
+			return (1);
 		}
 		else
-			waitpid(child_pid, &status, 0);	
-		return (1);
+		{
+			child_pid = fork();
+			if (child_pid < 0)
+				ft_putendl("Unable to fork pid");
+			else if (child_pid == 0)
+				execve(bin, args, te->env);
+			else
+				waitpid(child_pid, &status, 0);	
+			return (1);
+		}
 	}
 	return (0);
 }
@@ -74,7 +87,7 @@ void			do_process(t_term *te, char *env, char **args)
 	{
 		g_curr_job = child_pid;
 		if (!(execve(env, args, te->env)))
-			exit (0);		
+			exit (0);	
 	}
 	else
 	{

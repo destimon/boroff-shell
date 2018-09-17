@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:04:59 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/11 16:22:02 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:36:43 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@
 #include <stdbool.h>
 #include "structs.h"
 #include <fcntl.h>
+
+# define ARR_WHITE_SPACES	"\t\n "
+
 /*
 ** pipe, redirect, double redirect and heredoc.
 */
@@ -57,7 +60,7 @@
 # define ERR_CD_MANYARGS	"too many arguments"
 # define ERR_CD_UNEXIST		"no such file or directory"
 # define ERR_CD_UNACCESS	"Permission denied."
-
+# define ERR_BIN_ISDIR      "Cannot execute directory"
 /*
 ** KEYBOARD.
 */
@@ -132,10 +135,15 @@ int			catch_pipes(t_term *te, char *cmd);
 /*
 ** THREADS.
 */
+void		thread_manager(t_term *te, t_token *tok);
 void		init_pipethreads(t_term *te, t_token *tok);
 void		init_redirthreads(t_term *te, t_token *tok);
 void		init_heredocthreads(t_term *te, t_token *tok);
 void		init_bredthreads(t_term *te, t_token *tok);
+/*
+** PROCCESS.
+*/
+void		pipe_proccess(t_token *tok);
 
 /*
 ** DIR: INPUT -----------------------------------------------------------------
@@ -211,6 +219,8 @@ void		cursor_right(int times);
 */
 void		unknown_cmd(char *cmd);
 void		cd_errors(char *err);
+void		bin_errors(char *err);
+
 /*
 ** HISTORY.
 */

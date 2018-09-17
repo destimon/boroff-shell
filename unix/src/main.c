@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcherend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:09:21 by dcherend          #+#    #+#             */
-/*   Updated: 2018/08/04 18:05:46 by dcherend         ###   ########.fr       */
+/*   Updated: 2018/09/17 14:30:33 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 //◦ tgetstr
 //◦ tgoto
 //◦ tputs
+
+// $> [some tabs] [command] sometimes don't execute
 
 void			print_borroff()
 {
