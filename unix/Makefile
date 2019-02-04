@@ -6,7 +6,7 @@
 #    By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/17 15:19:05 by dcherend          #+#    #+#              #
-#    Updated: 2018/09/17 14:26:28 by dcherend         ###   ########.fr        #
+#    Updated: 2019/02/04 12:53:29 by dcherend         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRC 			= main.c $(ETC_DIR)environ.c $(INTERFACE_DIR)term.c $(INTERFACE_DIR)ui.c 
                 $(INPUT_DIR)input.c $(INPUT_DIR)input2.c $(CORE_DIR)execute.c $(ETC_DIR)utils2.c \
                 $(ETC_DIR)error.c $(CMD_DIR)cmd_env.c $(ETC_DIR)envmanage.c $(ETC_DIR)history.c \
                 $(INPUT_DIR)qu_deleter.c $(ETC_DIR)quotes.c $(INPUT_DIR)combinations.c \
-                $(CORE_DIR)btree.c $(INPUT_DIR)moving.c $(CORE_DIR)threads.c $(CORE_DIR)proccess.c
+                $(CORE_DIR)btree.c $(INPUT_DIR)moving.c $(CORE_DIR)threads.c $(CORE_DIR)proccess.c \
+				$(CORE_DIR)bincmd.c
 OBJ 			= $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
 LIB_BIN 		= $(LIBFT_DIR)libft.a

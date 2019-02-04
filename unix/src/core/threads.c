@@ -13,46 +13,56 @@ void			thread_manager(t_term *te, t_token *tok)
 	}
 }
 
-void			init_pipethreads(t_term *te, t_token *tok)
+static void			solve_pipe(t_term *te, t_token *tok)
 {
-	char		**cmd;
-	char		**cmd2;
-	int			pipefd[2];
-	pid_t		pid;
-	pid_t		pid2;
-	int			status;
+	int pipefd[2];
+	t_bincmd bcmd1;
+	t_bincmd bcmd2;
+	pid_t pid1;
+	pid_t pid2;
 
-	cmd = ft_strsplit(tok->left, ' ');
-	cmd2 = ft_strsplit(tok->right, ' ');
-	if (access(cmd[0], F_OK) == 0)
+	bcmd1 = solve_bincmd(te, tok->left);
+	bcmd2 = solve_bincmd(te, tok->right);
+	pipe(pipefd);
+	if (bcmd1.file)
 	{
-		pid = fork();
-		// set_input_mode();
-		if (pid == 0)
+		pid1 = fork();
+		if (pid1 == 0)
 		{
-			pipe(pipefd);
-			if (access(cmd[0], F_OK) == 0)
-			{
-				pid2 = fork();
-				if (pid2 == 0)
-				{
-					dup2(pipefd[1], 1);
-					close(pipefd[0]);
-					execve(cmd[0], cmd, te->env);
-				}
-				else
-					wait(&status);
-			}
-			dup2(pipefd[0], 0);
-			close(pipefd[1]);
-			thread_manager(te, tok->next);
-			execve(cmd2[0], cmd2, te->env);
+			dup2(pipefd[1], STDOUT_FILENO);
+			close(pipefd[0]);
+			execve(bcmd1.file, bcmd1.argv, te->env);
+			return ;
 		}
-		else
-			wait(&status);
+		free_bincmd(bcmd1);
 	}
-	ft_free_twodm(cmd);
-	ft_free_twodm(cmd2);
+	if (bcmd2.file)
+	{
+		pid2 = fork();
+		if (pid2 == 0)
+		{
+			dup2(pipefd[0], STDIN_FILENO);
+			close(pipefd[1]);
+			execve(bcmd2.file, bcmd2.argv, te->env);
+			return ;
+		}
+		free_bincmd(bcmd2);
+	}
+	close(pipefd[0]);
+	close(pipefd[1]);
+	int st = 0;
+	waitpid(pid1, &st, 0);
+	waitpid(pid2, &st, 0);
+}
+
+void			init_pipethreads(t_term *te, t_token *tok)
+{	
+	// tok = tok->next;
+	// while (tok)
+	// {
+		solve_pipe(te, tok);
+		// tok = tok->next;
+	// }
 }
 
 void			init_redirthreads(t_term *te, t_token *tok)

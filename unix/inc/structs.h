@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 14:57:17 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/17 13:46:32 by dcherend         ###   ########.fr       */
+/*   Updated: 2019/02/04 12:07:46 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ typedef struct		s_history
 	int				h_size;
 	int				h_capacity;
 }					t_history;
+
+typedef struct		s_bincmd
+{
+	char			*file;
+	char			**argv;
+}					t_bincmd;
 
 typedef struct		s_term
 {

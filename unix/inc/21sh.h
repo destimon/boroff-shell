@@ -6,7 +6,7 @@
 /*   By: dcherend <dcherend@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:04:59 by dcherend          #+#    #+#             */
-/*   Updated: 2018/09/17 15:36:43 by dcherend         ###   ########.fr       */
+/*   Updated: 2019/02/04 15:07:35 by dcherend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@
 # define ERR_CD_UNEXIST		"no such file or directory"
 # define ERR_CD_UNACCESS	"Permission denied."
 # define ERR_BIN_ISDIR      "Cannot execute directory"
+
 /*
 ** KEYBOARD.
 */
@@ -88,7 +89,6 @@
 /*
 ** MISC.
 */
-
 # define TAB_SIZE	9
 
 /*
@@ -144,6 +144,11 @@ void		init_bredthreads(t_term *te, t_token *tok);
 ** PROCCESS.
 */
 void		pipe_proccess(t_token *tok);
+/*
+** BINCMD.
+*/
+t_bincmd    solve_bincmd(t_term *te, char *cmd);
+void        free_bincmd(t_bincmd bcmd);
 
 /*
 ** DIR: INPUT -----------------------------------------------------------------
