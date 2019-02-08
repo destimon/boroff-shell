@@ -13,46 +13,87 @@ void			thread_manager(t_term *te, t_token *tok)
 	}
 }
 
+
+
+static void			pair_proccesses(t_term *te, t_token *tok, int pipes[2])
+{
+	pid_t pid;
+	int pipes2[2];
+	t_bincmd bcmd;
+
+	if (!tok || tok->op != '|')
+	{
+		close(pipes[0]);
+		close(pipes[1]);
+		return ;
+	}
+	bcmd = solve_bincmd(te, tok->right);
+	pipe(pipes2);
+	if (bcmd.file)
+	{
+		pid = fork();
+		if (pid == 0)
+		{
+			dup2(pipes[0], STDIN_FILENO);
+			if (tok->next)
+			{
+				dup2(pipes2[1], STDOUT_FILENO);
+				close(pipes[0]);
+				close(pipes[1]);
+			}
+			close(pipes2[0]);
+			close(pipes2[1]);
+			execve(bcmd.file, bcmd.argv, te->env);
+			_exit(1);
+		}
+		free_bincmd(bcmd);
+	}
+	close(pipes[1]);
+	wait(NULL);
+	pair_proccesses(te, tok->next, pipes2);
+}
+
+
+
 static void			solve_pipe(t_term *te, t_token *tok)
 {
-	int pipefd[2];
-	t_bincmd bcmd1;
-	t_bincmd bcmd2;
-	pid_t pid1;
+	int pipes[2];
+	int pipes2[2];
+	pid_t pid;
 	pid_t pid2;
 
-	bcmd1 = solve_bincmd(te, tok->left);
-	bcmd2 = solve_bincmd(te, tok->right);
-	pipe(pipefd);
-	if (bcmd1.file)
+	t_bincmd bcmd1 = solve_bincmd(te, tok->left);
+	t_bincmd bcmd2 = solve_bincmd(te, tok->right);
+	pipe(pipes);
+	pid = fork();
+	if (pid == 0)
 	{
-		pid1 = fork();
-		if (pid1 == 0)
-		{
-			dup2(pipefd[1], STDOUT_FILENO);
-			close(pipefd[0]);
-			execve(bcmd1.file, bcmd1.argv, te->env);
-			return ;
-		}
-		free_bincmd(bcmd1);
+		dup2(pipes[1], STDOUT_FILENO);
+		close(pipes[0]);
+		// close(pipes[1]);
+		execve(bcmd1.file, bcmd1.argv, te->env);
+		_exit(1);
 	}
-	if (bcmd2.file)
+	close(pipes[1]);
+	wait(NULL);
+	free_bincmd(bcmd1);
+	pipe(pipes2);
+	pid2 = fork();
+	if (pid2 == 0)
 	{
-		pid2 = fork();
-		if (pid2 == 0)
-		{
-			dup2(pipefd[0], STDIN_FILENO);
-			close(pipefd[1]);
-			execve(bcmd2.file, bcmd2.argv, te->env);
-			return ;
-		}
-		free_bincmd(bcmd2);
+		dup2(pipes[0], STDIN_FILENO);
+		if (tok->next)
+			dup2(pipes2[1], STDOUT_FILENO);
+		close(pipes[0]);
+		close(pipes[1]);
+		close(pipes2[0]);
+		close(pipes2[1]);
+		execve(bcmd2.file, bcmd2.argv, te->env);
+		_exit(1);
 	}
-	close(pipefd[0]);
-	close(pipefd[1]);
-	int st = 0;
-	waitpid(pid1, &st, 0);
-	waitpid(pid2, &st, 0);
+	close(pipes2[1]);
+	wait(NULL);
+	pair_proccesses(te, tok->next, pipes2);
 }
 
 void			init_pipethreads(t_term *te, t_token *tok)
